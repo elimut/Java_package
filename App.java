@@ -4,6 +4,9 @@ import com.anneSo.Popit;
 import java.util.Scanner;
 // import de la classe Ppopit du package com\anneSo
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 public class App{
     public static String name = "anneso";
     public static String salut = "bonjour";
@@ -28,9 +31,15 @@ public class App{
         System.out.println(reponse);
         scanner.close();
         // il existe une méthode qui ne traite que des chaînes de caractères, avec optimisation de la mémoire: dans java.io.BufferedReader => si saisie d'un entier convertira en chaîne de caractères.
+    
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        // lit ce qu'entre l'user ainsi que d'autres sources: fichier, usb... Il faut importer également import java.io.InputStreamReader, clavier
+        System.out.println(br);
     }
 }
 /*
  * BuffererdReader, synchrone attente fin exécution pour suite programme, contrairement à scanner qui est asynchrone.
- * BufferedReader = thread-safe (mémoire saine)
+ * BufferedReader = thread-safe (mémoire saine), pas de parsing
+ * scanner => lecture de données et possibilité parsing
  */
